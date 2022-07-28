@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register page</title>
+    <style>
+        .roww {
+            background-color: blue;
+            display: flex;
+            width: 100%;
+        }
+
+        .mobile {
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+        hr {
+            border-color: steelblue;
+        }
+
+        input[type=submit] {
+            padding: 10px;
+            width: 50%;
+            border: none;
+            color: white;
+            background-color: steelblue;
+            border-radius: 20px;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=email] {
+            text-align: left;
+            width: 100%;
+            border-radius: 20px;
+            background-color: powderblue;
+            padding: 10px;
+            display: inline-block;
+            border: none;
+            margin: 5px 0px;
+
+        }
+
+        input {
+            outline: none;
+            outline-color: blue;
+        }
+
+
+        h4 {
+            position: relative;
+            margin-left: 40px;
+        }
+
+
+
+
+
+        @media screen and (max-width:650px) {
+            .mobile {
+                float: center;
+
+                width: 100%;
+                padding: 100px;
+                display: table;
+                margin-bottom: 20px;
+            }
+
+            .container {
+                padding: 10px;
+                width: 70%;
+            }
+
+            input[type=text],
+            input[type=password],
+            input[type=email] {
+                text-align: left;
+                width: 89%;
+                border-radius: 20px;
+                background-color: powderblue;
+                padding: 10px;
+                display: inline-block;
+                border: none;
+                margin: 5px;
+            }
+
+
+            .roww {
+                display: block;
+                width: 100%
+            }
+
+            .foot {
+                width: 100%;
+                display: block;
+            }
+
+
+        }
+
+
+
+
+        ul a {
+            display: block;
+            text-decoration: none;
+        }
+
+
+        .container {
+            width: 93%;
+            padding: 16px;
+            color: steelblue;
+        }
+
+        footer {
+            text-align: center;
+            background-color: rgb(28, 7, 131);
+            clear: both;
+            overflow: auto;
+            color: steelblue;
+            padding: 20px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="formvalidator()">
+        <div class="container">
+            <h1> Registration </h1>
+            <p> Fill in the fields below to register </p>
+            <hr style="width:100%" />
+            <label> <b> Full Name </b>
+                <input type="text" placeholder="Full Name" Id="fname"> </input> </label>
+            <label> <b> Username </b>
+                <input type="text" placeholder="Username" Id="uname"> </input> </label>
+            <label> <b> Password </b>
+                <input type="password" Id="password" placeholder="Password"> </input> </label>
+            <label> <b> Repeat-Password </b>
+                <input type="password" Id="passwrd" placeholder="Password"> </input> </label>
+            <label> <input type="checkbox" onclick="checkpass()"> Check Password </input> </label>
+            <br /> <br />
+
+            <label> <b> Matric No.</b>
+                <input type="text" placeholder="Matric No." Id="matric"> </input> </label>
+            <label> <b> Email</b>
+                <input type="email" placeholder="Email" Id="email"> </input> </label>
+
+
+
+
+            <label> <b> Gender </b>
+                <input type="radio"> Male </input>
+                <input type="radio"> Female </input>
+
+            </label>
+            <br /> <br />
+            <label> <b> Department</b>
+
+
+
+
+                <select Id="department"
+                    style="padding:5px;   color:grey; outline:none; border-color: steelblue; border-radius: 10px;">
+                    <option> AGT</option>
+                    <option> COM Science </option>
+                    <option> Fishery </option>
+                    <option> Mech. Eng </option>
+                    <option> SLT</option>
+                    <option> OTM</option>
+                    <option> LIS </option>
+                    <option> ABE </option>
+                    <option> HRE </option>
+                    <option> AGT</option>
+                    <option> AGT</option>
+                    <option> AGT</option>
+                    <option> AGT</option>
+                    <option> AGT</option>
+                </select> </label> <br /> <br />
+            <input type="Submit"> </input>
+            <p style="background-color:white; padding:15px; "> Already have an account? <span> <a
+                        style="text-decoration:none; color:blue" href="#"> Login </a></span> </p>
+        </div>
+
+        <script>
+            function formvalidator() {
+                var fname = document.getElementById("fname");
+                var uname = document.getElementById("uname");
+                var rpass = document.getElementById("pass");
+                var pass = document.getElementById("passwrd");
+                var mail = document.getElementById("email");
+                var matric = document.getElementById("matric");
+                var dept = document.getElementById("department");
+
+
+
+
+
+
+
+
+
+
+                function validat_fname(fname) {
+                    letters = /^[A-Za-z]+$/;
+                    if (fname.value.match(letters) && fname.value > " ") {
+                        return true;
+
+                    }
+                    else {
+
+                        alert("Enter your full name");
+                        fname.focus();
+                        return false;
+                    }
+                }
+                function validat_uname(uname, max, min) {
+                    if (uname.value = " " || uname.value > max || uname.value < min) {
+                        return false;
+                        alert("Create username/ your username min length and max legth is betweer 7 and 12");
+                        uname.focus();
+                    }
+                    else {
+                        return true;
+                    }
+                }
+
+                function validat_pass(pass) {
+                    alphanum = /^[0-9A-Za-z]+$/;
+                    if (pass.value.match(alphanum)) {
+                        return true;
+
+
+                    }
+                    else {
+
+                        alert("Ensure your password is alphanuemric");
+                        pass.focus();
+                        return false;
+                    }
+                }
+
+                function validat_repeatpass(rpass) {
+                    if (pass === rpass) {
+                        return true;
+
+                    }
+                    else {
+                        alert("confirm your password , error");
+                        return false;
+                        rpass.focus();
+                    }
+                }
+                function validat_matric(matric) {
+                    num = /^[0-9A-Za-z]+$/;
+                    if (matric.value > " " && matric.value.match(num)) {
+                        return true;
+
+                    }
+                    else {
+                        return false;
+                        alert("Ensure your matric is inserted");
+                        matric.focus();
+
+                    }
+                }
+
+                if (validat_fname(fname)) { }
+                if (validat_repeatpass(rpass)) { }
+                if (validat_uname(uname, 12, 7)) { }
+                if (validat_pass(pass)) { }
+                if (validat_matric(matric)) { }
+
+                return false;
+
+
+            }
+
+
+
+        </script>
+
+    </form>
+
+
+
+
+    <script>
+
+        function checkpass() {
+            var cb = document.getElementById("password");
+            var cb2 = document.getElementById("passwrd");
+
+            if (cb.type == "password" && cb2.type == "password") {
+                cb.type = "text";
+                cb2.type = "text";
+            }
+
+            else {
+                cb2.type = "password";
+                cb.type = "password";
+            }
+        }
+    </script>
+
+
+
+    <div class="roww" style="width:100%;">
+
+        <div class="foot" style="width:33.1%; padding:6px; float:center; text-align:center; color:white;">
+            <h4 style="font-family:'Courier New', Courier, monospace ; text-align:center;"> Hotlines </h4>
+            <ul>
+                <a style="color: white ;" href="#"> (+234)8140242752</a>
+                <a style="color: white ;" href="#"> Alfredchrisayo@gmail.com</a>
+                <a style="color: white ;" href="#"> Twitter/Fxcosmos </a>
+                <a style="color: white ;" href="#"> Fb/AlfredAyo </a>
+
+            </ul>
+            <br />
+        </div>
+
+
+        <div class="foot" style="width:33.1%; padding:6px; float:center; text-align: center; color:white;">
+            <h4 style="font-family:'Courier New', Courier, monospace ;"> Make more </h4>
+            <ul>
+                <a style="color: white ;" href="#"> (+234)8140242752</a>
+                <a style="color: white ;" href="#"> Alfredchrisayo@gmail.com</a>
+                <a style="color: white ;" href="#"> Twitter/Fxcosmos</a>
+                <a style="color: white ;" href="#"> Fb/AlfredAyo</a>
+
+            </ul>
+            <br />
+        </div>
+
+        <div class="foot" style="width:33.1%; padding:6px; float:center; text-align: center; color:white;">
+            <h4 style="font-family:'Courier New', Courier, monospace ;"> Address </h4>
+            <ul>
+                <a style="color: white ;" href="#"> (+234)8140242752</a>
+                <a style="color: white ;" href="#"> Alfredchrisayo@gmail.com</a>
+                <a style="color: white ;" href="#"> Twitter/Fxcosmos</a>
+                <a style="color: white ;" href="#"> Fb/AlfredAyo</a>
+
+            </ul>
+            <br />
+        </div>
+    </div>
+
+
+
+
+
+    <div class="roww" style="width:100%;">
+
+        <div class="foot" style="width:33.1%; padding:6px; float:center; text-align: center; color:white;">
+            <h4 style="font-family:'Courier New', Courier, monospace ;"> Further Enquiries </h4>
+            <ul>
+                <a style="color: white ;" href="#"> (+234)8140242752</a>
+                <a style="color: white ;" href="#"> Alfredchrisayo@gmail.com</a>
+                <a style="color: white ;" href="#"> Twitter/Fxcosmos</a>
+                <a style="color: white ;" href="#"> Fb/AlfredAyo</a>
+
+            </ul>
+            <br />
+        </div>
+
+        <div class="foot" style="width:33.1%; padding:6px; float:center; text-align: center; color:white;">
+            <h4 style="font-family:'Courier New', Courier, monospace ;"> About Us </h4>
+            <ul>
+                <a style="color: white ;" href="#"> (+234)8140242752</a>
+                <a style="color: white ;" href="#"> Alfredchrisayo@gmail.com</a>
+                <a style="color: white ;" href="#"> Twitter/Fxcosmos</a>
+                <a style="color: white ;" href="#"> Fb/AlfredAyo</a>
+
+            </ul>
+            <br />
+        </div>
+
+    </div>
+
+    <footer>
+
+
+        <span> new E-vote &copy; 2022</span>
+    </footer>
+
+
+</body>
+
+</html>
